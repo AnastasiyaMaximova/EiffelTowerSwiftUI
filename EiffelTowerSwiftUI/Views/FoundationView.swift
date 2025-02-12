@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FoundationView: View {
+    
     var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
@@ -25,15 +26,15 @@ struct FoundationView: View {
             }
             .stroke(.black, lineWidth: 3)
             
-            
             Path { path in
                 path.move(to: CGPoint(x: middle + nearLine * 1.2, y: middle * 0.8))
                 path.addLine(to: CGPoint(x: middle + nearLine * 1.2, y: nearLine * 2.5))
                 path.addLine(to: CGPoint(x: middle - nearLine * 1.2, y: nearLine * 2.5))
                 path.addLine(to: CGPoint(x: middle - nearLine * 1.2, y: middle * 0.8))
-                path.addLine(to: CGPoint(x: middle + nearLine * 1.2, y: middle * 0.8))            }
+                path.addLine(to: CGPoint(x: middle + nearLine * 1.2, y: middle * 0.8))
+            }
             .stroke(.black, lineWidth: 3)
-        
+            
             Path { path in
                 path.move(to: CGPoint(x: 0, y: height))
                 path.addLine(to: CGPoint(x: 0, y: farLine))
@@ -41,14 +42,15 @@ struct FoundationView: View {
                 path.addLine(to: CGPoint(x: width, y: height))
                 path.addLine(to: CGPoint(x: 0, y: height))
             }
-            .stroke(.green, lineWidth: 3)
+            .stroke(.cyan, lineWidth: 3)
             .fill(
                 LinearGradient(
-                    gradient: Gradient(colors: [.yellow, .green]),
+                    gradient: Gradient(colors: [.cyan, .purple]),
                     startPoint: UnitPoint(x: 0, y: 1),
                     endPoint: UnitPoint(x: 1, y: 0)
-                    )
+                )
             )
+            .opacity(0.6)
             
             Path { path in
                 path.addArc(
@@ -56,10 +58,10 @@ struct FoundationView: View {
                     radius: nearLine,
                     startAngle: .degrees(0),
                     endAngle: .degrees(180),
-                    clockwise: true)
+                    clockwise: true
+                )
             }
             .stroke(.black, lineWidth: 3)
-            
             
         }
     }
